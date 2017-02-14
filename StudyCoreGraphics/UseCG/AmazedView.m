@@ -39,10 +39,10 @@
     float bRadius = self.frame.size.width * 0.5;
 
     //middle circle radius
-    float mRadius = self.frame.size.width * 0.416666667;
+    float mRadius = bRadius * 5 / 6;
 
     //little circle radius
-    float lRadius = self.frame.size.width * 0.277777778;
+    float lRadius = mRadius * 2 / 3;
 
     float process = 0.25;
     float offset1 = 0.16;
@@ -86,8 +86,8 @@
 - (CGPoint)pointInCircle:(float)radius withAngle:(float)ang {
     CGFloat angle = M_PI * 2.0 * ang;//将进度转换成弧度
     angle += self.offset;
-    if (angle > M_PI*2.0) {
-        angle -= M_PI*2.0;
+    if (angle > M_PI * 2.0) {
+        angle -= M_PI * 2.0;
     }
     int index = angle / M_PI_2;//用户区分在第几象限内
     float needAngle = angle - index * M_PI_2;//用于计算正弦/余弦的角度
